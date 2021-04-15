@@ -1,0 +1,7 @@
+(channel
+ (version 0))
+
+;; Local Variables:
+;; mode: scheme
+;; geiser-scheme-implementation: guile
+;; End:
