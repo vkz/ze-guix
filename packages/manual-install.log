@@ -1,0 +1,21 @@
+# prerequisites
+guix package -i python bc
+
+# checkout
+git clone https://github.com/Chia-Network/chia-blockchain.git
+
+# inside checkout init or update submodules
+cd chia-blockchain
+git submodule update --init mozilla-ca
+
+# back to parent, create and activate virtual env
+cd ..
+python3 -m venv venv
+ln -s venv/bin/activate activate
+source activate
+
+# what amounts to installing binary wheels inside venv
+pip install --upgrade pip
+pip install wheel
+pip install --extra-index-url https://pypi.chia.net/simple/ miniupnpc==2.1
+pip install -e ./chia-blockchain/ --extra-index-url https://pypi.chia.net/simple/
